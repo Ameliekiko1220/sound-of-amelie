@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 04 — The Sound of Amelie</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --white: #F8F7F4; --black: #0F0F0D; --mid: #8A8880;
+    --faint: #E8E6E1; --rule: rgba(15,15,13,0.1);
+    --serif: 'EB Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+  }
+  html { font-size: 18px; }
+  body {
+    background: var(--white); color: var(--black);
+    font-family: var(--serif); line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-back {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--black); }
+  .nav-title {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--black);
+  }
+
+  /* ── Content ── */
+  .chapter-wrap {
+    max-width: 780px; margin: 0 auto; padding: 5rem 2rem 8rem;
+  }
+
+  /* Cover image */
+  .chapter-cover {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--faint); overflow: hidden; margin-bottom: 3rem;
+  }
+  .chapter-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Chapter heading */
+  .chapter-eyebrow {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 0.8rem;
+  }
+  .chapter-title {
+    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 3rem;
+  }
+  .chapter-title em { font-style: italic; }
+
+  /* Info rows */
+  .chapter-info { margin-bottom: 4rem; }
+  .info-row {
+    display: flex; gap: 2rem; align-items: baseline;
+    padding: 0.9rem 0; border-top: 1px solid var(--rule);
+  }
+  .info-row:last-child { border-bottom: 1px solid var(--rule); }
+  .info-label {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mid); flex-shrink: 0; width: 180px;
+  }
+  .info-value { font-size: 0.95rem; color: var(--black); line-height: 1.65; }
+
+  /* Comic pages */
+  .comic-pages { display: flex; flex-direction: column; gap: 3px; }
+  .comic-page { width: 100%; background: var(--faint); }
+  .comic-page img { width: 100%; display: block; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .chapter-wrap { padding: 3rem 1.5rem 6rem; }
+    .info-label { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html#artworks" class="nav-back">← Back to Artworks</a>
+  <span class="nav-title">The Sound of Amelie</span>
+</nav>
+
+<div class="chapter-wrap">
+
+
+  <!-- CHAPTER HEADING -->
+  <!-- Edit the chapter number and title -->
+  <p class="chapter-eyebrow">Chapter 04</p>
+  <h1 class="chapter-title"><em>His Bunny</em></h1>
+
+  <!-- COVER IMAGE -->
+  <!-- Replace with your actual cover: <img src="images/comic-01-cover.jpg" alt="Chapter 01 cover"> -->
+  <div class="chapter-cover">
+    <img src="comic-bunny/cover.png" alt="Chapter 04 cover">
+  </div>
+
+  <!-- INFO ROWS -->
+  <!-- Edit the text after each <span class="info-value"> -->
+  <div class="chapter-info">
+    <div class="info-row">
+      <span class="info-label">Main characters</span>
+      <span class="info-value">Rain, Amelie</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Story background</span>
+      <span class="info-value">Amelie notices Rain has a bunny tied to his bag, and she is curious to touch it.</span>
+    </div>
+  </div>
+
+  <!-- COMIC PAGES -->
+  <!-- Add as many pages as you need by copying a <div class="comic-page"> block -->
+  <div class="comic-pages">
+    <div class="comic-page"><img src="comic-bunny/1.jpg" alt="Page 1"></div>
+    <div class="comic-page"><img src="comic-bunny/2.jpg" alt="Page 2"></div>
+    <div class="comic-page"><img src="comic-bunny/3.jpg" alt="Page 3"></div>
+    <div class="comic-page"><img src="comic-bunny/4.jpg" alt="Page 4"></div>
+
+    
+  
+
+</div>
+
+</body>
+</html>
