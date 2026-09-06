@@ -154,7 +154,10 @@
   .hook-quote .line.visible { opacity: 1; transform: translateY(0); }
   .hook-eyebrow.visible { opacity: 1; transform: translateY(0); }
   .line--small { font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 300; color: var(--mid); }
-  .line--large { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; color: #2180bf; }
+  .line--large { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; color: #3b81c6; }
+  .tour-text {
+  color: #296d9d;
+  font-size: 0.75em;}
   .line--large em { font-style: italic; }
   .line--mid { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; font-style: italic; color: var(--mid); margin-top: 0.5rem; }
 
@@ -350,7 +353,7 @@
     <p class="hook-eyebrow">Project Overview</p>
     <p class="hook-quote">
       <span class="line line--small">At fourteen, I joined</span>
-      <span class="line line--large"><em>The Sound of Music</em> national tour</span>
+      <span class="line line--large"><em>The Sound of Music</em> <span class="tour-text">National Tour</span></span>
       <span class="line line--small">across 36 cities in China.</span>
       <span class="line line--mid">My life was changed.</span>
     </p>
@@ -368,14 +371,27 @@
         <img class="memory-img" src="archive/11.JPG" alt="Stage performance">
         <div class="memory-caption">The von Trapp children</div>
       </div>
+
+      <div class="memory-frame">
+        <img class="memory-img" src="archive/20.JPG" alt="Stage performance">
+        <div class="memory-caption">Wedding</div>
+      </div>
+
       <div class="memory-frame">
         <img class="memory-img" src="archive/4.JPG" alt="Stage performance">
         <div class="memory-caption">Curtain Call-The von Trapp Family</div>
       </div>
+
+      <div class="memory-frame">
+        <img class="memory-img" src="archive/19.JPG" alt="Stage performance">
+        <div class="memory-caption">Maria is back</div>
+      </div>
+
       <div class="memory-frame">
         <img class="memory-img" src="archive/15.JPG" alt="Stage performance">
         <div class="memory-caption">Curtain Call Inverse</div>
       </div>
+
       <div class="memory-frame">
         <img class="memory-img" src="archive/8.JPG" alt="Stage performance">
         <div class="memory-caption">So Long, Farewell</div>
@@ -384,6 +400,12 @@
         <img class="memory-img" src="archive/2.JPG" alt="Stage performance">
         <div class="memory-caption">Playclothes</div>
       </div>
+
+      <div class="memory-frame">
+        <img class="memory-img" src="archive/18.JPG" alt="Stage performance">
+        <div class="memory-caption">Von Trapp Kids</div>
+      </div>
+
       <div class="memory-frame">
         <img class="memory-img" src="archive/5.JPG" alt="Stage performance">
         <div class="memory-caption">The Lonely Goatherd</div>
@@ -715,9 +737,7 @@
     setTimeout(() => {
       document.querySelector('.hook-eyebrow').classList.add('visible');
     }, 200);
-    document.querySelectorAll('.hook-quote .line').forEach((line, i) => {
-      setTimeout(() => line.classList.add('visible'), 400 + i * 220);
-    });
+    document.querySelectorAll('.hook-quote .line').forEach((line, i) => {setTimeout(() => line.classList.add('visible'), 200 + i * 120);});
   });
 
   const observer = new IntersectionObserver((entries) => {
