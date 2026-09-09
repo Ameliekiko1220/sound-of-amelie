@@ -253,6 +253,57 @@
   .video-caption { margin-top: 1rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
   .video-list { display: flex; flex-direction: column; gap: 3rem; }
 
+  /* ─────────────── WRITING ─────────────── */
+  .writing-cover { cursor: pointer; }
+  .writing-cover:hover { opacity: 0.6; }
+
+  .writing-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(15,15,13,0.92);
+    align-items: center; justify-content: center;
+    padding: 3rem; overflow-y: auto;
+  }
+  .writing-modal.active { display: flex; }
+  .writing-modal-inner {
+    position: relative; background: var(--white);
+    max-width: 920px; width: 100%; max-height: 88vh; overflow-y: auto;
+  }
+  .writing-entry { display: none; grid-template-columns: 1fr 1fr; }
+  .writing-entry.active { display: grid; }
+  .writing-modal-image { background: var(--faint); }
+  .writing-modal-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .writing-modal-text { padding: 3.5rem 3rem; }
+  .writing-modal-label {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 1.2rem;
+  }
+  .writing-modal-title {
+    font-family: var(--display); font-size: 1.9rem; font-weight: 400;
+    letter-spacing: -0.01em; margin-bottom: 2rem; line-height: 1.2;
+  }
+  .writing-modal-poem {
+    font-family: var(--serif); font-size: 1rem; line-height: 1.95;
+    color: var(--black); white-space: pre-line;
+  }
+  .writing-modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: none; border: 1px solid var(--rule);
+    width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    font-family: var(--mono); font-size: 0.9rem; color: var(--mid);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .writing-modal-close:hover { color: var(--black); border-color: var(--black); }
+
+  @media (max-width: 768px) {
+    .writing-modal { padding: 1.2rem; }
+    .writing-modal-inner { max-height: 92vh; }
+    .writing-entry.active { grid-template-columns: 1fr; }
+    .writing-modal-image { aspect-ratio: 4/3; }
+    .writing-modal-text { padding: 2.2rem 1.5rem; }
+  }
+
   .audio-list { display: flex; flex-direction: column; gap: 0; }
   .audio-item { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); }
   .audio-item:last-child { border-bottom: 1px solid var(--rule); }
@@ -455,6 +506,7 @@
   <div class="tab-bar">
     <button class="tab-btn active" onclick="showTab('animation', this)">Animation & Video</button>
     <button class="tab-btn" onclick="showTab('comics', this)">Comics</button>
+    <button class="tab-btn" onclick="showTab('writing', this)">Writing</button>
     <button class="tab-btn" onclick="showTab('sketches', this)">Sketches</button>
     <button class="tab-btn" onclick="showTab('characterdesign', this)">Character Design</button>
     <button class="tab-btn" onclick="showTab('storyboard', this)">Storyboard</button>
@@ -613,6 +665,19 @@
     </div>
   </div>
 
+  <!-- WRITING -->
+  <div id="tab-writing" class="tab-panel">
+    <div class="comics-grid">
+
+      <div class="comic-cover writing-cover" onclick="openWriting('writing-mountain')">
+        <div class="comic-thumb"><img src="archive/14.JPG" alt="Drawing accompanying the poem The Mountain"></div>
+        <p class="comic-label">The Mountain</p>
+        <p class="comic-sublabel">Did we cross over that mountain?</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- SKETCHES -->
   <div id="tab-sketches" class="tab-panel">
     <div class="image-grid">
@@ -681,9 +746,9 @@
     <div class="narrative-text">
       <p class="narrative-section-label">About The Film</p>
 
-      <p>At fourteen, I made the first all-or-nothing decision of my life. I left my boarding school to tour thirty-six cities in China as Louisa in the Chinese production of <em>The Sound of Music</em>. The moment I said, "I want to go," I burst into tears. I did not know what I was leaving behind, what I would encounter, or who I would become.</p>
+      <p>At fourteen, I made the decision that changed my life. I left my boarding school to tour thirty-six cities in China as Louisa in the Chinese production of <em>The Sound of Music</em>. The moment I said, "I want to go," I burst into tears. I did not know what I was leaving behind, what I would encounter, or who I would become.</p>
 
-      <p class="pivot">Ten years later, I am returning to this journey.</p>
+      <p class="pivot">Ten years later, I am returning to this journey in the form of animation.</p>
 
       <p><em>The Sound of Amelie</em> is a feature-length animated memoir about the distance between lived and remembered experience. As a child, the tour meant loneliness, exhaustion, and insecurity. As an adult, I can see what was invisible to me then. The film is a conversation between those two selves: the girl who made a life-changing choice without knowing its consequences, and the adult who understands what that choice became.</p>
 
@@ -725,7 +790,55 @@
   <p>All rights reserved</p>
 </footer>
 
+<!-- ══════════ WRITING MODAL ══════════ -->
+<div id="writing-modal" class="writing-modal" onclick="closeWriting(event)">
+  <div class="writing-modal-inner" onclick="event.stopPropagation()">
+    <button class="writing-modal-close" onclick="closeWriting()">&#10005;</button>
+
+    <div id="writing-mountain" class="writing-entry active">
+      <div class="writing-modal-image">
+        <img src="archive/14.JPG" alt="Drawing accompanying the poem The Mountain">
+      </div>
+      <div class="writing-modal-text">
+        <p class="writing-modal-label">Writing</p>
+        <h3 class="writing-modal-title">The Mountain</h3>
+        <p class="writing-modal-poem">I witnessed. The dust
+Tilted at a 70-degree
+Angle. The coldness
+Penetrated across me through
+My long hood. Darkness. I was searching
+My footsteps. I was trained
+To walk that way. I was climbing
+That mountain that was not supposed
+To be the mountain. Everything was long
+Lost in memories. She sang. She gave me
+Her hand. I could see in the darkness.
+Artificial fog, with a pungent smell
+That I was never used of.
+Everything was the last time.
+No more.
+No more again.
+Did we cross over that mountain?
+I could merely see in the dark.
+Did we?
+I think a good story shouldn't have an ending.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
+  function openWriting(id) {
+    document.querySelectorAll('.writing-entry').forEach(e => e.classList.remove('active'));
+    const entry = document.getElementById(id);
+    if (entry) entry.classList.add('active');
+    document.getElementById('writing-modal').classList.add('active');
+  }
+  function closeWriting(e) {
+    document.getElementById('writing-modal').classList.remove('active');
+  }
+
   function showTab(name, el) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
