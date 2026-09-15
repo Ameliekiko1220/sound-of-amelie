@@ -131,11 +131,12 @@
   }
   .hook-inner { max-width: 900px; text-align: center; position: relative; }
   .hook-eyebrow {
-    font-family: var(--mono); font-size: 0.6rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--mid); margin-bottom: 3rem;
-    opacity: 0; transform: translateY(12px);
-    transition: opacity 1s ease 0.1s, transform 1s ease 0.1s;
+    opacity: 0; transform: translateY(10px);
+    animation: hookFadeIn 0.7s ease forwards;
+    animation-delay: 0.05s;
   }
   .hook-quote {
     font-family: var(--display);
@@ -144,15 +145,15 @@
     color: var(--black);
   }
   .hook-quote .line {
-    display: block; opacity: 0; transform: translateY(30px);
-    transition: opacity 1.1s cubic-bezier(0.25,0.46,0.45,0.94),
-                transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
+    display: block;
+    opacity: 0; transform: translateY(10px);
+    animation: hookFadeIn 0.7s ease forwards;
+    animation-delay: 0.1s;
   }
-  .hook-quote .line:nth-child(2) { transition-delay: 0.18s; }
-  .hook-quote .line:nth-child(3) { transition-delay: 0.36s; }
-  .hook-quote .line:nth-child(4) { transition-delay: 0.54s; }
-  .hook-quote .line.visible { opacity: 1; transform: translateY(0); }
-  .hook-eyebrow.visible { opacity: 1; transform: translateY(0); }
+  @keyframes hookFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .line--small { font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 300; color: var(--mid); }
   .line--large { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; color: #3b81c6; }
   .tour-text {
@@ -349,7 +350,7 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   @media (prefers-reduced-motion: reduce) {
-    .fade-up, .reveal, .hook-quote .line, .hook-eyebrow { opacity:1; transform:none; transition:none; }
+    .fade-up, .reveal, .hook-quote .line, .hook-eyebrow { opacity:1; transform:none; transition:none; animation:none; }
   }
 
   /* ─────────────── MOBILE ─────────────── */
@@ -753,9 +754,9 @@
     <div class="narrative-text">
       <p class="narrative-section-label">About The Film</p>
 
-      <p>At fourteen, I made the decision that changed my life. I left my boarding school to tour thirty-six cities in China as Louisa in the Chinese production of <em>The Sound of Music</em>. The moment I said, "I want to go," I burst into tears. I did not know what I was leaving behind, what I would encounter, or who I would become.</p>
+      <p>At fourteen, I made the first all-or-nothing decision of my life. I left my boarding school to tour thirty-six cities in China as Louisa in the Chinese production of <em>The Sound of Music</em>. The moment I said, "I want to go," I burst into tears. I did not know what I was leaving behind, what I would encounter, or who I would become.</p>
 
-      <p class="pivot">Ten years later, I am returning to this journey in the form of animation.</p>
+      <p class="pivot">Ten years later, I am returning to this journey.</p>
 
       <p><em>The Sound of Amelie</em> is a feature-length animated memoir about the distance between lived and remembered experience. As a child, the tour meant loneliness, exhaustion, and insecurity. As an adult, I can see what was invisible to me then. The film is a conversation between those two selves: the girl who made a life-changing choice without knowing its consequences, and the adult who understands what that choice became.</p>
 
@@ -853,16 +854,11 @@ I think a good story shouldn't have an ending.</p>
     el.classList.add('active');
   }
 
-  window.addEventListener('load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const firstBtn = document.querySelector('.tab-btn');
     const firstPanel = document.querySelector('.tab-panel');
     if (firstBtn) firstBtn.classList.add('active');
     if (firstPanel) firstPanel.classList.add('active');
-
-    setTimeout(() => {
-      document.querySelector('.hook-eyebrow').classList.add('visible');
-    }, 200);
-    document.querySelectorAll('.hook-quote .line').forEach((line, i) => {setTimeout(() => line.classList.add('visible'), 200 + i * 120);});
   });
 
   const observer = new IntersectionObserver((entries) => {
