@@ -162,6 +162,43 @@
   .line--large em { font-style: italic; }
   .line--mid { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; font-style: italic; color: var(--mid); margin-top: 0.5rem; }
 
+  /* ─────────────── SYNOPSIS ─────────────── */
+  #synopsis { max-width: var(--max); }
+  .synopsis-text { max-width: 68ch; margin: 0 auto; }
+  .synopsis-text p {
+    font-family: var(--serif); font-size: 1.08rem; line-height: 1.9;
+    color: var(--black); margin-bottom: 1.5rem;
+  }
+  .synopsis-text p:last-child { margin-bottom: 0; }
+  .synopsis-text em { font-style: italic; }
+  .synopsis-text .pivot {
+    font-family: var(--display); font-style: italic; font-size: 1.4rem;
+    color: var(--mid); margin: 2.2rem 0; line-height: 1.6; text-align: center;
+  }
+  .synopsis-more {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .synopsis-more.expanded { max-height: 8000px; }
+  .synopsis-fade {
+    position: relative; margin-top: -1px;
+  }
+  .synopsis-fade::before {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 100%;
+    height: 3.5rem; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, var(--white));
+  }
+  .synopsis-fade.expanded::before { display: none; }
+  .synopsis-toggle {
+    display: block; margin: 2.5rem auto 0;
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mid); background: none; border: 1px solid var(--rule);
+    padding: 0.75rem 1.8rem; cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .synopsis-toggle:hover { color: var(--black); border-color: var(--black); }
+
   /* ─────────────── MEMORY STRIP ─────────────── */
   #memory {
     padding: 5rem 0; max-width: 100%;
@@ -383,6 +420,7 @@
   <a href="#hero" class="nav-name">The Sound of Amelie</a>
   <ul class="nav-links">
     <li><a href="#hook">Overview</a></li>
+    <li><a href="#synopsis">Synopsis</a></li>
     <li><a href="#artworks">Artworks</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -409,6 +447,77 @@
       <span class="line line--small">across 36 cities in China.</span>
       <span class="line line--mid">My life was changed.</span>
     </p>
+  </div>
+</section>
+
+<!-- ══════════ SYNOPSIS ══════════ -->
+<section id="synopsis">
+  <p class="section-label">Synopsis</p>
+  <div class="synopsis-text reveal">
+
+    <p>Fifteen-year-old Amelie stands on the stage of the Shanghai Grand Theater, hand in hand with the cast of <em>The Sound of Music</em>, bowing to five minutes of applause that will not stop. Looking back, her life begins at fourteen, from a bullied boarding-school girl to someone who truly sees herself in the world of musical theatre.</p>
+
+    <p>At school, Amelie is defined by the suffocating pressure to rank in the top ten and a docile personality built to avoid trouble. Her classmates call her "Momma's Pet" and "Angelic B*tch." Her teachers only see a girl who could try harder. She is a gifted singer, but at fourteen she is invisible. Her talent even makes her the talk of the school after one school performance. Drawing is one of the only things that still brings her joy. She makes small comics about her classmates and passes them around the room, hoping their laughter will win her a friend.</p>
+
+    <p>When her mother suggests she audition for a national touring production of <em>The Sound of Music</em>, Amelie is terrified, but her mother's confidence pushes her through the door. In an oversized black dress, an outsider among children already glittering in tutus and stage makeup, she sings "Do-Re-Mi." Something in the director's face changes. She is called back. Against all odds, she is cast as Louisa von Trapp.</p>
+
+    <p>That same week, she makes the top ten for the first time in her life. At the dinner table, her parents laid out the cost of going: a year away on tour, missed exams, and years of violin training left behind. Faced with all uncertainties, Amelie says, her voice trembling, that she will not go.</p>
+
+    <div class="synopsis-fade" id="synopsisFade">
+    <div class="synopsis-more" id="synopsisMore">
+
+    <p>That night, her mother gives her the doll she promised as a reward for making the top ten. Before leaving the room, she asks quietly, "Did you make this decision for us or for yourself?" Amelie does not answer. Alone with the doll's unblinking eyes, she imagines becoming just like it: smooth, smiling, and hollow, while the girl she could have been onstage quietly fades away.</p>
+
+    <p>At school, Yuna, her only friend, tells her about <em>Elisabeth</em>, a musical she once cried at when she was nine: a heroine who refused to become the person everyone told her to be. "I always think you're like her," Yuna says. "You have such a beautiful voice." It is the first time anyone has called Amelie beautiful for who she is, not who she should be.</p>
+
+    <p>Amelie changes her mind.</p>
+
+    <p>At the train platform, her mother finally says what she has been holding back. "I asked myself, if I were your friend, what would I tell you?" The answer is one word: "Go."</p>
+
+    <p>As the train pulls out of Shanghai, Amelie watches her reflection layer over the moving landscape, her school uniform flickering for a moment into the navy costume from <em>The Sound of Music</em>. Then she is only herself again. She does not know what is waiting for her. For the first time, the choice is hers.</p>
+
+    <p>Rehearsal in Beijing begins with humiliation: the choreographer singles her out in front of every other child, calls her a clumsy gorilla, and makes her dance alone while the room watches. That night, at the welcome dinner, every other child stands beside their parents. Amelie does not. Her mother has already left in a cab toward the train station, silently crying. Amelie turns back to the party with tears in her own eyes.</p>
+
+    <p>That night, in a dorm full of shouting, overexcited strangers, she sneaks onto the balcony and calls her mother, begging to come home. Frightened by the crying and quietly just as afraid herself, her mother offers a way out: a violin exam back in Shanghai next week gives Amelie a temporary reason to return. If she still wants to leave, she can bring everything home. But if she decides to stay, she only needs the violin.</p>
+
+    <p>She comes back a week later with only the violin.</p>
+
+    <p>Slowly, without her noticing, the children become home. Loud and impossible at first, they turn out to be extraordinary dancers who teach Amelie how to dance better. At night she sits among them with her sketchbook, drawing their faces and their funny jokes. Days later, they drag her to the living room to show her something back: a doodle of Amelie drawing them, pinned to the "Thank You" wall. She has spent so much time looking at them that she never noticed they were looking at her too.</p>
+
+    <p>Then, one ordinary afternoon, a boy walks into the room and catches everyone's eyes. His name is Rain. He played Friedrich last year, knows the part well, and rarely shows up to rehearsal. For the first time in her life, Amelie starts praying every night just to see him again.</p>
+
+    <p>When a fever hits her, she insists on coming to rehearsals anyway and falls asleep on a prop mattress backstage. She wakes to find Rain lying beside her, bouncing a ball. He puts a hand to her forehead and tells her to sweat it out. It is the first time he has really spoken to her. Days later, the final cast list goes up. Amelie is the oldest of the child actors and too tall to stand beside Rain, so she is placed instead with another boy, Cody. The cast splits into two groups. As the tour begins, Amelie understands she may never see Rain again.</p>
+
+    <p>Summer arrives with the tour. The group travels from city to city, reaching thousands of strangers that gather in the dark for the music. Amelie gets her first ovation, and, in Chengdu, her first real disaster, when her dress falls open onstage and Cody bursts out laughing. She returns to Shanghai briefly for her final exams, where her classmates, unexpectedly, seem glad to have her back. For the first time, she stands in front of them and performs songs from <em>The Sound of Music</em> without once worrying what they think. She just wants to be herself.</p>
+
+    <p>Back on tour, Rain returns but has become popular among girls in the cast. Certain she will soon be a stranger to him again, Amelie asks for one photo together in the dressing room, as if it might be her last chance. Strangely, after the show, he lets her touch the one thing on his bag no one else is allowed to touch: a small lucky keychain shaped like a bunny. That night, by text, he asks if she likes him. Hesitant at first, she admits that she does. The next day he tells her he has liked her since the fever. The night before he leaves the tour, Amelie knocks on his door to say goodbye, undone in tears. Rain kisses the edge of her lip, promising they'll meet again.</p>
+
+    <p>By fall the tour has turned brutal: a new city every four days, homework finished on eight-hour trains. Cody comes back, and Amelie grows close to him in a different way. Backstage in the dark, he tells her about Cassy, the girl who played Louisa last year, and admits he still misses her and that Amelie looks exactly like her. Surprised as she is, Amelie finds she does not mind being the one who reminds him of someone he loved, for she longs for a person that is not here.</p>
+
+    <p>When Cody learns his voice is changing and that Changsha will be his last city, Amelie draws him one final picture and hands it to him backstage. But she cannot leave it there. She finds him again on his way back to his hotel room and calls his name. When he turns and immediately opens his arms, she runs into them, then pulls away fast before he can see her cry.</p>
+
+    <p>Not long after, the group is short a soloist, and the music director asks Amelie to sing the part. For the first time in the show, she hears her own voice come back through the giant theater speakers, no longer hidden among the others. When the music director tells Amelie afterward that she did well, she is speechless. A faint smile crosses her face as she lowers her head.</p>
+
+    <p>By winter the production returns to Shanghai, her birthplace, for its final run. Her old classmates appear unannounced at the stage door with flowers and come to see a girl they never actually knew. It snows in Shanghai for the first time in thirteen years, and Rain, back with the group again, plays in it with her beneath a streetlamp. Onstage, during the number where the captain first kisses Maria, Rain kisses Amelie too: brief and tender.</p>
+
+    <p>At the final curtain call, Amelie bows beside the same cast and crew one last time, the audience on its feet, applauding and crying. And she realizes: this is the same theater where, a year earlier, she sat in the cheapest seat on the third floor, too far away to see the stage, watching <em>Wicked</em> and understanding almost nothing about musical theater. She had stared at the actors then and wished she could become one of them. Now she is standing where they stood.</p>
+
+    <p>Backstage, two bouquets are waiting: one for Rain and one for Amelie, sent quietly by her mother. Afterward, her parents drive Rain to the train station. He is leaving for Beijing that same night. Before the car stops, he presses a folded note into her hand. She watches him climb out, then turn back once more. His eyes are bright and unforgettable.</p>
+
+    <p>Only once he disappears does she open the note. Three clumsy, handwritten words fill the page:</p>
+
+    <p class="pivot">I LOVE YOU.</p>
+
+    <p>In the bottom left corner, small and almost forgotten, is his full name: Rain Zheng.</p>
+
+    <p>Her parents turn around from the front seat. Everything, they tell her, is already packed. Tonight, they are moving to a new house. Amelie will never get to say goodbye to the home she has lived in for fourteen years. She does not know if she is happy or sad.</p>
+
+    <p>The car drives forward into the dark. Behind her, <em>The Sound of Music</em> is over. Ahead of her, she cannot yet see what comes next.</p>
+
+    </div>
+    </div>
+    <button class="synopsis-toggle" id="synopsisToggle" onclick="toggleSynopsis()">Continue Reading ↓</button>
+
   </div>
 </section>
 
@@ -837,6 +946,16 @@ I think a good story shouldn't have an ending.</p>
 </div>
 
 <script>
+  function toggleSynopsis() {
+    const more = document.getElementById('synopsisMore');
+    const fade = document.getElementById('synopsisFade');
+    const btn = document.getElementById('synopsisToggle');
+    const expanding = !more.classList.contains('expanded');
+    more.classList.toggle('expanded');
+    fade.classList.toggle('expanded');
+    btn.textContent = expanding ? 'Show Less ↑' : 'Continue Reading ↓';
+  }
+
   function openWriting(id) {
     document.querySelectorAll('.writing-entry').forEach(e => e.classList.remove('active'));
     const entry = document.getElementById(id);
