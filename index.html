@@ -270,6 +270,46 @@
   .tab-panel.active { display: block; }
 
   .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  /* ─────────────── STORYBOARD SEQUENCES ─────────────── */
+.sb-group { margin-bottom: 6rem; }
+.sb-group:last-child { margin-bottom: 0; }
+
+.sb-header {
+  text-align: center;
+  max-width: 54ch;
+  margin: 0 auto 2.5rem;
+}
+.sb-number {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1rem;
+}
+.sb-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300; letter-spacing: -0.01em; line-height: 1.2;
+  color: var(--black);
+}
+.sb-title::after {
+  content: ''; display: block;
+  width: 2.5rem; height: 1px;
+  background: var(--mid); opacity: 0.5;
+  margin: 1.2rem auto 1.2rem;
+}
+.sb-desc {
+  font-family: var(--mono); font-weight: 300;
+  font-size: 0.72rem; line-height: 1.9; letter-spacing: 0.04em;
+  color: var(--mid);
+}
+
+/* centers incomplete last rows (e.g. 5 images = 3 + 2) */
+.image-grid--center { display: flex; flex-wrap: wrap; justify-content: center; }
+.image-grid--center .image-cell { width: calc((100% - 6px) / 3); }
+
+@media (max-width: 768px) {
+  .sb-group { margin-bottom: 4rem; }
+  .image-grid--center .image-cell { width: calc((100% - 3px) / 2); }
+}
   .image-cell { aspect-ratio: 4/3; background: var(--faint); overflow: hidden; position: relative; }
   .image-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .image-cell .placeholder {
@@ -837,17 +877,47 @@
   </div>
 
   <!-- STORYBOARD -->
-  <div id="tab-storyboard" class="tab-panel">
-    <div class="image-grid">
-      <div class="image-cell"><img src="storyboard-montage/montage_thesoundofamelie.jpg" alt="Montage One-The Summer on Stage"></div>
-      <div class="image-cell"><img src="storyboard-montage/montage2_thesoundofamelie.jpg" alt="Montage Two-Still Gaze"></div>
-      <div class="image-cell"><img src="storyboard-montage/montage3_thesoundofamelie.jpg" alt="Montage Three-Curtain Call"></div>
+<div id="tab-storyboard" class="tab-panel">
+
+  <div class="sb-group">
+    <div class="sb-header">
+      <p class="sb-number">Sequence 01</p>
+      <h3 class="sb-title">The Decision</h3>
+      <p class="sb-desc">At the dinner table, Amelie and her parents weigh the cost of the tour.</p>
+    </div>
+    <div class="image-grid image-grid--center">
       <div class="image-cell"><img src="storyboard-The Decision/1 copy.jpg" alt="the decision-1"></div>
       <div class="image-cell"><img src="storyboard-The Decision/2 copy.jpg" alt="the decision-2"></div>
       <div class="image-cell"><img src="storyboard-The Decision/3 copy.jpg" alt="the decision-3"></div>
       <div class="image-cell"><img src="storyboard-The Decision/4 copy.jpg" alt="the decision-4"></div>
       <div class="image-cell"><img src="storyboard-The Decision/5 copy.jpg" alt="the decision-5"></div>
-      <div class="image-cell"><img src="storyboard-no dancing/no_dancing.jpg" alt="no-dancing"></div>
+    </div>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-header">
+      <p class="sb-number">Sequence 02</p>
+      <h3 class="sb-title">School Mongtage</h3>
+      <p class="sb-desc">Life at Amelie's boarding school, where she remains invisible and is always defined by rank.</p>
+    </div>
+    <div class="image-grid image-grid--center">
+      <div class="image-cell"><img src="storyboard_school_montage/1.jpg" alt="school_montage-1"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/2.jpg" alt="school_montage-2"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/3.jpg" alt="school_montage-3"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/4.jpg" alt="school_montage-4"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/5.jpg" alt="school_montage-5"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/6.jpg" alt="school_montage-6"></div>
+      <div class="image-cell"><img src="storyboard_school_montage/7.jpg" alt="school_montage-7"></div>
+    </div>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-header">
+      <p class="sb-number">Sequence 03</p>
+      <h3 class="sb-title">Elisabeth</h3>
+      <p class="sb-desc">Amelie's best friend at school, Yuna, tells Amelie about her favorite musical heroine who refused to become who everyone wanted.</p>
+    </div>
+    <div class="image-grid image-grid--center">
       <div class="image-cell"><img src="storyboard-elisabeth/1.jpg" alt="elisabeth-1"></div>
       <div class="image-cell"><img src="storyboard-elisabeth/2.jpg" alt="elisabeth-2"></div>
       <div class="image-cell"><img src="storyboard-elisabeth/3.jpg" alt="elisabeth-3"></div>
@@ -857,16 +927,36 @@
       <div class="image-cell"><img src="storyboard-elisabeth/7.jpg" alt="elisabeth-7"></div>
       <div class="image-cell"><img src="storyboard-elisabeth/8.jpg" alt="elisabeth-8"></div>
       <div class="image-cell"><img src="storyboard-elisabeth/9.jpg" alt="elisabeth-9"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/1.jpg" alt="school_montage-1"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/2.jpg" alt="school_montage-2"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/3.jpg" alt="school_montage-3"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/4.jpg" alt="school_montage-4"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/5.jpg" alt="school_montage-5"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/6.jpg" alt="school_montage-6"></div>
-      <div class="image-cell"><img src="storyboard_school_montage/7.jpg" alt="school_montage-7"></div>
-      
     </div>
   </div>
+
+  
+
+  <div class="sb-group">
+    <div class="sb-header">
+      <p class="sb-number">Sequence 04</p>
+      <h3 class="sb-title">No Dancing</h3>
+      <p class="sb-desc">Amelie, who hesitates to go to the audition because of her insecurity in dancing, discovers there is no dancing required for her first audition.</p>
+    </div>
+    <div class="image-grid image-grid--center">
+      <div class="image-cell"><img src="storyboard-no dancing/no_dancing.jpg" alt="no-dancing"></div>
+    </div>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-header">
+      <p class="sb-number">Sequence 05</p>
+      <h3 class="sb-title">Tour Montage</h3>
+      <p class="sb-desc">Three montages of the tour in the city of Guangzhou——the longest residential tour that lasted for 20 days.</p>
+    </div>
+    <div class="image-grid image-grid--center">
+      <div class="image-cell"><img src="storyboard-montage/montage_thesoundofamelie.jpg" alt="Montage One - The Summer on Stage"></div>
+      <div class="image-cell"><img src="storyboard-montage/montage2_thesoundofamelie.jpg" alt="Montage Two - Still Gaze"></div>
+      <div class="image-cell"><img src="storyboard-montage/montage3_thesoundofamelie.jpg" alt="Montage Three - Curtain Call"></div>
+    </div>
+  </div>
+
+</div>
 
   <!-- MUSIC (hidden) -->
   <div id="tab-music" class="tab-panel">
