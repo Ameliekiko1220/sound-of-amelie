@@ -335,6 +335,18 @@
   .writing-cover { cursor: pointer; }
   .writing-cover:hover { opacity: 0.6; }
 
+  .writing-modal-desc {
+  font-family: var(--serif); font-size: 1rem; line-height: 1.85;
+  color: var(--black);}
+  .writing-modal-link {
+  display: inline-block; margin-top: 2rem;
+  font-family: var(--mono); font-size: 0.62rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--black); text-decoration: none;
+  border: 1px solid var(--rule); padding: 0.8rem 1.6rem;
+  transition: border-color 0.2s;}
+  .writing-modal-link:hover { border-color: var(--black); }
+
   .writing-modal {
     display: none; position: fixed; inset: 0; z-index: 200;
     background: rgba(15,15,13,0.92);
@@ -834,6 +846,12 @@
         <p class="comic-label">The Mountain</p>
         <p class="comic-sublabel">Did we cross over that mountain?</p>
       </div>
+      
+      <div class="comic-cover writing-cover" onclick="openWriting('writing-impossible-dream')">
+        <div class="comic-thumb"><img src="writing/the_impossible_dream_cover.JPG" alt="cover for the impossible dream"></div>
+        <p class="comic-label">The Impossible Dream</p>
+        <p class="comic-sublabel">Screenplay, Chapter One</p>
+      </div>
 
     </div>
   </div>
@@ -947,7 +965,7 @@
     <div class="sb-header">
       <p class="sb-number">Sequence 05</p>
       <h3 class="sb-title">Tour Montage</h3>
-      <p class="sb-desc">Three montages of the tour in the city of Guangzhou——the longest residential tour that lasted for 20 days.</p>
+      <p class="sb-desc">Three montages of the tour in Guangzhou, the longest residential run of the tour, which lasted 20 days.</p>
     </div>
     <div class="image-grid image-grid--center">
       <div class="image-cell"><img src="storyboard-montage/montage_thesoundofamelie.jpg" alt="Montage One - The Summer on Stage"></div>
@@ -1031,6 +1049,8 @@
 </footer>
 
 <!-- ══════════ WRITING MODAL ══════════ -->
+
+<!-- ══════════ WRITING MODAL ══════════ -->
 <div id="writing-modal" class="writing-modal" onclick="closeWriting(event)">
   <div class="writing-modal-inner" onclick="event.stopPropagation()">
     <button class="writing-modal-close" onclick="closeWriting()">&#10005;</button>
@@ -1065,10 +1085,22 @@ I think a good story shouldn't have an ending.</p>
       </div>
     </div>
 
+    <div id="writing-impossible-dream" class="writing-entry">
+      <div class="writing-modal-image">
+        <img src="writing/the_impossible_dream_cover.JPG" alt="Cover for The Impossible Dream">
+      </div>
+      <div class="writing-modal-text">
+        <p class="writing-modal-label">Screenplay · Chapter One</p>
+        <h3 class="writing-modal-title">The Impossible Dream</h3>
+        <p class="writing-modal-desc">The first chapter of The Sound of Amelie. A fourteen-year-old girl faces the decision of whether to leave her boarding school and join the tour. 35 pages.</p>
+        <a class="writing-modal-link" href="writing/the-impossible-dream.pdf" target="_blank" rel="noopener">Read the screenplay (PDF) ↗</a>
+      </div>
+    </div>
+
   </div>
 </div>
-
 <script>
+  
   function toggleSynopsis() {
     const more = document.getElementById('synopsisMore');
     const fade = document.getElementById('synopsisFade');
